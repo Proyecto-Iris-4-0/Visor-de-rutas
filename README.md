@@ -3,7 +3,7 @@ En este repositorio se encuentra un código Python para la visualización con Ju
 
 Las API's empleadas han sido Google, Graphhopoper y OSRM. Para que el código funcione se necesita disponer de una API key de Google y tener instaladas Graphhopper y OSRM.
 
-# Instalación de Graphhopper mediante Docker.
+## Instalación de Graphhopper mediante Docker.
 
 Clonar el siguiente repositorio: 
 $ https://github.com/graphhopper/graphhopper
