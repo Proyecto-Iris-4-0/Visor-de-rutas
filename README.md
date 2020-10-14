@@ -1,4 +1,4 @@
-# Visor-de-rutas
+# Visor de rutas
 En este repositorio se encuentra un código Python para la visualización con JupyterNotebook de rutas generadas por distintas APIs de mapas.
 
 Las API's empleadas han sido Google, Graphhopoper y OSRM. Para que el código funcione se necesita disponer de una API key de Google y tener instaladas Graphhopper y OSRM.
@@ -39,4 +39,13 @@ Y levantar el contenedor:
 $ docker run -d --name graphhopper -v /home/$USER/data:/data -p 8989:8989 graphhopper:master
 
 En el puerto 8989 se debería haber levantado ya el servicio.
+
+
+## Instalación de OSRM mediante Docker.
+
+Usaremos el mismo mapa que hemos descargado para el caso anterior y que hemos dejado en la carpeta ~/data. Hay que "correr" las siguientes imágenes de Docker:
+```
+$ docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-extract -p /opt/car.lua /data/spain-latest.osm.pbf
+```
+
 
