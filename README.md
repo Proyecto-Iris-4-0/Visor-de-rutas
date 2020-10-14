@@ -53,5 +53,18 @@ Usaremos el mismo mapa que hemos descargado para el caso anterior y que hemos de
 ```
 $ docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-extract -p /opt/car.lua /data/spain-latest.osm.pbf
 ```
+Ahora se lanzan dos contenedores que van calculando y generando las matrices de distancias:
+```
+$ docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-partition /data/spain-latest.osrm
+```
+```
+$ docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-customize /data/spain-latest.osrm
+```
+
+Ahora lanzamos el servidor en el puerto 5000
+```
+$ docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/spain-latest.osrm
+```
+
 
 
